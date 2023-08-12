@@ -17,8 +17,8 @@ To simplify the setup, we've provided a `docker-compose.yml` file. Before starti
 
 1. Clone the repository:
 ```bash
-git clone <repository_url>
-cd <repository_name>
+git clone https://github.com/songyu-Ren/todo_Backend.git
+cd todo_Backend
 ```
 
 2. Build the Docker image and start the services using Docker Compose:
