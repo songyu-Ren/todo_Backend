@@ -2,19 +2,28 @@ from datetime import datetime
 from enum import Enum
 from app import db
 
+# Enum class to represent task importance levels
 class Importance(Enum):
     LOW = 1
     MEDIUM = 2
     HIGH = 3
 
+# Database model to represent a ToDo item
 class ToDo(db.Model):
+    # Unique identifier for each todo item
     id = db.Column(db.Integer, primary_key=True)
+    # Content/description of the todo item
     content = db.Column(db.String(120), nullable=False)
+    # Flag to indicate if the task is completed or not
     is_completed = db.Column(db.Boolean, default=False)
+    # Flag to indicate if the task is deleted (soft delete)
     is_deleted = db.Column(db.Boolean, default=False)
 
+    #Timestemp when the task was created
     create_time = db.Column(db.DateTime, default=datetime.utcnow)
+    #Timestemp when the task was created
     update_time = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    #Deadline for the task (can be null if no deadline)
     deadline = db.Column(db.DateTime, nullable=True)
 
     # Enum-based importance
